@@ -14,7 +14,6 @@ import com.ql.util.express.exception.QLSecurityRiskException;
  */
 public class QLExpressRunStrategy {
     /**
-     * 沙箱模式开关
      */
     private static boolean sandboxMode = false;
     /**
