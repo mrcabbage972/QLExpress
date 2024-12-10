@@ -81,7 +81,6 @@
             <groupId>org.unitils</groupId>
             <artifactId>unitils</artifactId>
             <version>4.5.1</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
