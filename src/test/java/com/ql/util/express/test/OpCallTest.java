@@ -16,14 +16,13 @@ public class OpCallTest {
         runner.addOperatorWithAlias("打印", "println", null);
         runner.addFunctionOfClassMethod("isVIP", BeanExample.class.getName(), "isVIP", new Class[] {String.class}, "");
         runner.addOperatorWithAlias("是否VIP", "isVIP", "亲爱的$1,你还不是VIP用户");
-
         String[][] expressTest = new String[][] {
-            {"println \"ssssss\"", "null"},
-            {"println (\"ssssss\")", "null"},
-            {"abc (\"bbbbbbbb\")", "null"},
-            {"打印 (\"函数别名测试\")", "null"},
-            {"isVIP (\"玄难\")", "false"},
-            {"是否VIP (\"玄难\")", "false"},
+            {"println \\\"ssssss\\\"", "null"},
+            {"println (\\\"ssssss\\\")", "null"},
+            {"abc (\\\"bbbbbbbb\\\")", "null"},
+            {"打印 (\\\"函数别名测试\\\")", "null"},
+            {"isVIP (\\\"玄难\\\")", "false"},
+            {"是否VIP (\\\"玄难\\\")", "false"},
         };
         IExpressContext<String, Object> expressContext = new ExpressContextExample(null);
 

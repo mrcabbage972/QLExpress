@@ -23,14 +23,14 @@ public class BreakContinueTest {
     @Test
     public void doubleContinueTest() throws Exception {
         String express = "" +
-                "m = 4;" +
-                "for (i = 0; i < 3; i++){" +
-                "  if (i==0) {" +
-                "    continue;" +
-                "  }" +
-                "  int type = 0;" +
-                "  m++;" +
-                "}" +
+                "m = 4;\n" +
+                "for (i = 0; i < 3; i++){\n" +
+                "  if (i==0) {\n" +
+                "    continue;\n" +
+                "  }\n" +
+                "  int type = 0;\n" +
+                "  m++;\n" +
+                "}\n" +
                 "m";
 
         ExpressRunner runner = new ExpressRunner(false, true);

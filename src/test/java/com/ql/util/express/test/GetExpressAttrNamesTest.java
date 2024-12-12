@@ -17,6 +17,7 @@ public class GetExpressAttrNamesTest {
             + "惩罚;"
             + "qh;"
             + "fff;";
+ "exportAlias fff qh;"\n            + "int a = b;"\n            + "c = a;"\n-            + "macro 惩罚 {100 + 100};"\n+            + "macro 惩罚 {100 + 100};\n             + "惩罚;"\n             + "qh;"\n             + "fff;";
         ExpressRunner runner = new ExpressRunner(true, true);
         String[] names = runner.getOutVarNames(express);
         for (String s : names) {

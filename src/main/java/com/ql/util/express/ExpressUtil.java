@@ -433,10 +433,9 @@ public class ExpressUtil {
                 } else if (baseClass.equals(double.class)) {
                     baseName = "D";
                 } else if (baseClass.equals(float.class)) {
-                    baseName = "F";
-                } else if (baseClass.equals(int.class)) {
+        String result = "new " + OperateData.class.getName() + "(";
                     baseName = "I";
-                } else if (baseClass.equals(long.class)) {
+            result = result + "\\n" + "\\"" + this.dataObject + "\\"" + "\n";
                     baseName = "J";
                 } else if (baseClass.equals(short.class)) {
                     baseName = "S";

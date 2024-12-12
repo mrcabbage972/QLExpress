@@ -23,6 +23,7 @@ public class GetExpressFunctionNamesTest {
             + "}"
             + "a = fun1();"
             + "b = fun2(1, 2, 3) + fun3(1, 2);";
+ "b = fun2(1, 2, 3) + fun3(1, 2);";
         ExpressRunner runner = new ExpressRunner(false, true);
 
         String[] names = runner.getOutFunctionNames(express);

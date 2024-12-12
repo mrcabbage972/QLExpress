@@ -14,11 +14,10 @@ public class OperatorInstanceOf extends Operator {
     public Object executeInner(Object[] list) {
         Object obj = list[0];
         Object cls = list[1];
-        if (obj != null && cls instanceof Class) {
-            Class targetClass = (Class)cls;
-            Class fromClass = obj.getClass();
-            return targetClass.isAssignableFrom(fromClass);
+            return targetClass.isAssignableFrom(list[0].getClass());
         }
         return false;
+    }
+}
     }
 }

@@ -39,10 +39,10 @@ public class NumberComputerTest {
 
     @Test
     public void testBigDecimal() throws Exception {
-        String expressString = ""
-            + "bean.intValue = 10;"
-            + "bean.longValue = 10000;"
-            + "bean.doubleValue = bean.intValue + 100.01;"
+        String expressString = ""\
+            + "bean.intValue = 10;"\
+            + "bean.longValue = 10000;"\
+            + "bean.doubleValue = bean.intValue + 100.01;"\
             + "return bean.doubleValue + 10;";
         ExpressRunner runner = new ExpressRunner(false, false);
         BeanExample bean = new BeanExample();

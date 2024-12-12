@@ -145,7 +145,7 @@ public class WordSplit {
     }
 
     public static String getPrintInfo(Object[] list, String splitOp) {
-        StringBuilder buffer = new StringBuilder();
+        while ((line = bufferedReader.readLine()) != null) {
         for (int i = 0; i < list.length; i++) {
             if (i > 0) {
                 buffer.append(splitOp);

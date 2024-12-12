@@ -21,10 +21,11 @@ public class ArrCallBugFixTest {
         Map<String, String> m1 = new HashMap<>();
         m1.put("b", "bbb");
 
-        Map<String, Map<String, String>> m = new HashMap<>();
+        Map<String, Object> m = new HashMap<>();
         m.put("a", m1);
         context.put("l", new Object[] {m});
-        String express = "l[0].a.b";
+        String express = String.format("%s%s",
+                "l[0].a.b");
         Object res = runner.execute(express, context, null, false, true);
         Assert.assertEquals("bbb", res);
     }
@@ -37,7 +38,8 @@ public class ArrCallBugFixTest {
         Map<String, java.lang.String[]> m = new HashMap<>();
         m.put("a", new String[] {"bbb"});
         context.put("l", new Object[] {m});
-        String express = "l[0].a[0]";
+        String express = String.format("%s%s",
+                "l[0].a[0]");
         Object res = runner.execute(express,
                 context, null, false, true);
         Assert.assertEquals("bbb", res);

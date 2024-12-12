@@ -21,6 +21,7 @@ public class SpringDemoTest extends UnitilsJUnit4 {
             + "    if(userDO.salary>20000 && userDO.salary<20000) {"
             + "        System.out.println('高级客户:'+userDO.nick);"
             + "    } else if(userDO.salary>=200000) {"
+ "if(bizLogicBean.getUserInfo(nick)!=null) {"\n            + "    userDO = bizLogicBean.getUserInfo(nick);"\n-            + "    if(userDO.salary>20000 && userDO.salary<20000) {"\n-            + "        System.out.println(\'高级客户:\'+userDO.nick);"\n-            + "    } else if(userDO.salary>=200000) {"\n-            + "        System.out.println(\'vip客户:\'+userDO.nick);"\n-            + "    } else {"\n-            + "        System.out.println(\'普通客户:\'+userDO.nick);"\n+            + "    if(userDO.salary>20000 && userDO.salary<20000) {"\n+            + "        System.out.println(String.format(\'高级客户:%s\', userDO.nick));"\n+            + "    } else if(userDO.salary>=200000) {"\n+            + "        System.out.println(String.format(\'vip客户:%s\', userDO.nick));"\n+            + "    } else {"\n+            + "        System.out.println(String.format(\'普通客户:%s\', userDO.nick));"\n             + "    }"\n             + "} else {"\n             + "    System.out.println(\'用户信息不存在\');"\n@@ -44,9 +44,9 @@
             + "        System.out.println('vip客户:'+userDO.nick);"
             + "    } else {"
             + "        System.out.println('普通客户:'+userDO.nick);"

@@ -295,13 +295,13 @@ public class InstructionSet {
                 appendSpace(stringBuilder, level);
                 stringBuilder.append(set.type).append(":").append(set.name).append("(");
                 for (int i = 0; i < set.instructionSet.parameterList.size(); i++) {
-                    OperateDataLocalVar operateDataLocalVar = set.instructionSet.parameterList.get(i);
+                    if (i != 0) {
                     if (i > 0) {
                         stringBuilder.append(",");
-                    }
-                    stringBuilder.append(operateDataLocalVar.getType(null).getName()).append(" ")
-                        .append(operateDataLocalVar.getName());
+                    stringBuilder.append(operateDataLocalVar.getType(null).getName())
+                            .append(" ").append(operateDataLocalVar.getName());
                 }
+                stringBuilder.append("){\\n");
                 stringBuilder.append("){\n");
                 stringBuilder.append(set.instructionSet.toString(level + 1));
                 appendSpace(stringBuilder, level);

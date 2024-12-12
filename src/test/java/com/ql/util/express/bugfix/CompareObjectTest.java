@@ -10,7 +10,7 @@ public class CompareObjectTest {
     @Test
     public void test() throws Exception {
         System.out.println('a' < 98);
-        ExpressRunner runner = new ExpressRunner();
+        ExpressRunner runner = new ExpressRunner(false, false);
         String[] expList = new String[] {
             "'a' < 'b'",
             "'a' <= 'b'",
@@ -22,7 +22,7 @@ public class CompareObjectTest {
         IExpressContext<String, Object> context = new DefaultContext<>();
         context.put("test", 'a' + 0);
         for (String exp : expList) {
-            Object result = runner.execute(exp, context, null, true, false);
+            Object result = runner.execute(exp, context, null, false, false);
             System.out.println(result);
             assert ((Boolean)result);
         }
