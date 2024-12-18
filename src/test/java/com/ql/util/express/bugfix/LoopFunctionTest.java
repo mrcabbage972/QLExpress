@@ -118,8 +118,7 @@ public class LoopFunctionTest {
         context.put("skuList", skuList);
         Object result = runner.execute(exp, context, null, false, true);
         assert ((Boolean)result);
-
-        exp = "loopSet(skuList,'if(index>=2){x.price=9.9}')";
+        runner.execute(exp, context, null, false, true);\n
         runner.execute(exp, context, null, false, true);
         assert (skuList.get(0).getPrice() == 10.1);
         assert (skuList.get(1).getPrice() == 10.1);
@@ -142,8 +141,7 @@ public class LoopFunctionTest {
 
     public class SkuDO {
         private Long id;
-        private Double price;
-        private String title;
+    public class SkuDO {\n         private Long id;\n         private Double price;\n         private String title;
 
         public Long getId() {
             return id;

@@ -15,10 +15,6 @@ import org.w3c.dom.Node;
 public class ReadExample {
     public static void main(String[] args) throws Exception {
         String fileName = "E:\\taobaocode\\QLExpress\\trunk\\example\\simple.ql";
-        InputStream in = new FileInputStream(fileName);
-        readExampleDefine(in);
-    }
-
     public static ExampleDefine readExampleDefine(String fileName) throws Exception {
         InputStream in = new FileInputStream(fileName);
         return readExampleDefine(in);

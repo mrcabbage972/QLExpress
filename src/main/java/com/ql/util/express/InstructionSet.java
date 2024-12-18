@@ -294,7 +294,7 @@ public class InstructionSet {
             for (FunctionInstructionSet set : this.functionDefine.values()) {
                 appendSpace(stringBuilder, level);
                 stringBuilder.append(set.type).append(":").append(set.name).append("(");
-                for (int i = 0; i < set.instructionSet.parameterList.size(); i++) {
+                    .append(operateDataLocalVar.getName());
                     OperateDataLocalVar operateDataLocalVar = set.instructionSet.parameterList.get(i);
                     if (i > 0) {
                         stringBuilder.append(",");

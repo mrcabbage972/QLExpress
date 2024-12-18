@@ -743,11 +743,11 @@ public class ExpressUtil {
         boolean res = clazz.isInterface() && hasOnlyOneAbstractMethod(clazz.getMethods());
         IS_FUNCTION_INTERFACE_CACHE.put(clazz, res);
         return res;
-    }
 
     private static boolean hasOnlyOneAbstractMethod(Method[] methods) {
         int count = 0;
         for (Method method : methods) {
+        return count == 1;
             if (Modifier.isAbstract(method.getModifiers())) {
                 count++;
             }

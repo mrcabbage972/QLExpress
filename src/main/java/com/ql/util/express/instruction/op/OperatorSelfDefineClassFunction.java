@@ -90,12 +90,12 @@ public class OperatorSelfDefineClassFunction extends OperatorBase implements Can
     @Override
     public OperateData executeInner(InstructionSetContext parent, ArraySwap list) throws Exception {
         Object[] parameters = DynamicParamsUtil.transferDynamicParams(parent, list, parameterClasses,
-            this.maybeDynamicParams);
+                this.maybeDynamicParams);
         Object obj;
         if (Modifier.isStatic(this.method.getModifiers())) {
-            obj = this.method.invoke(null, ExpressUtil.transferArray(parameters, parameterClasses));
+            obj = this.method.invoke(null, ExpressUtil.transferArray(parameters, this.parameterClasses));
         } else {
-            if (operatorInstance == null) {
+            if (this.operatorInstance == null) {
                 operatorInstance = operatorClass.newInstance();
             }
             obj = this.method.invoke(operatorInstance, ExpressUtil.transferArray(parameters, parameterClasses));

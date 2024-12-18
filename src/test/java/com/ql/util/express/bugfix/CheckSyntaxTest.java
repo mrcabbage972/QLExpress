@@ -24,7 +24,7 @@ public class CheckSyntaxTest {
         for (String exp : expList) {
             ArrayList<String> mockClasses = new ArrayList<>();
             Assert.assertTrue(runner.checkSyntax(exp, true, mockClasses));
-            System.out.println("未识别的java类列表:" + mockClasses);
+            System.out.println(String.format("未识别的java类列表: %s", mockClasses));
         }
     }
 

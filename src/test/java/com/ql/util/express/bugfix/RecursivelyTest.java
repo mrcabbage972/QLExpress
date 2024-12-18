@@ -28,11 +28,11 @@ public class RecursivelyTest {
         runner.addFunction("r_exeAll", exeOperator);
         runnerInner.addFunction("r_exeAll", exeOperator);
     }
+    }
+
 
     @Test
     public void testAllByFunction() throws Exception {
         String exp = "r_exeAll(1,2,3)";
-        IExpressContext<String, Object> context = new DefaultContext<>();
-        runner.execute(exp, context, null, false, true);
     }
 }

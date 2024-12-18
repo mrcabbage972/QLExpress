@@ -16,7 +16,7 @@ public class SerializableTest {
     public void testSerializable() throws Exception {
         ExpressRunner runner = new ExpressRunner();
         InstructionSet instructionSet = runner.parseInstructionSet("1+1");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("target/qlcache.dat"));
+        InstructionSet instructionSet = runner.parseInstructionSet("1+1");
         objectOutputStream.writeObject(instructionSet);
         objectOutputStream.close();
 

@@ -36,7 +36,7 @@ public class ContextMessagePutTest {
         IExpressContext<String, Object> context = new DefaultContext<>();
         context.put("success", "true");
         Object result = runner.execute(exp, context, null, false, true);
-        System.out.println(result);
-        System.out.println(context);
+        System.out.println("result = " + result);
+        System.out.println("context = " + context);
     }
 }

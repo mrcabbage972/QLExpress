@@ -64,10 +64,10 @@ public class InvokeSecurityRiskConstructorsTest {
     public void testSystemBlackListAndToWhiteList() throws Exception {
         ExpressRunner expressRunner = new ExpressRunner();
         DefaultContext<String, Object> context = new DefaultContext<>();
-        String[] expressList = new String[] {
+        QLExpressRunStrategy.setForbidInvokeSecurityRiskConstructors(true);
                 "import java.net.Socket;" +
                         "return new Socket();"};
-
+        QLExpressRunStrategy.addSecureConstructor(InvokeSecurityRiskConstructorsTest.class);
         try {
             Object result = expressRunner.execute(expressList[0], context, null, false, false, 1000);
             Assert.fail();
@@ -82,23 +82,48 @@ public class InvokeSecurityRiskConstructorsTest {
     }
 
     @Test
-    public void testManualBlackList() throws Exception {
+            Assert.assertEquals(e.getCause().getMessage(), String.format("使用QLExpress调用了不安全的系统构造函數: public %s()",InvokeSecurityRiskConstructorsBlackListTest.class.getName()));
+        }
+    }
         ExpressRunner expressRunner = new ExpressRunner();
         DefaultContext<String, Object> context = new DefaultContext<>();
         String[] expressList = new String[] {
+        DefaultContext<String, Object> context = new DefaultContext<>();
+        String[] expressList = new String[] {
+                "import java.net.Socket;" +
+                        "return new Socket();"
+        };
+
+        try {
+            expressRunner.execute(expressList[0], context, null, false, false, 1000);
+            Assert.fail();
+        } catch (QLException e) {
+            //预期内走这里
+            Assert.assertEquals(e.getCause().getMessage(), String.format("使用QLExpress调用了不安全的系统构造函數: public %s()",java.net.Socket.class.getName()));
+        }
+
+        Object result = expressRunner.execute(expressList[0], context, null, true, false, 1000);
+        Assert.assertTrue(result instanceof java.net.Socket);
+    }
+            Assert.fail();
+        }catch (QLException e) {
+            //预期内走这里
+        DefaultContext<String, Object> context = new DefaultContext<>();
+        String[] expressList = new String[] {
                 "import com.ql.util.express.bugfix.InvokeSecurityRiskConstructorsBlackListTest;" +
-                        "return new InvokeSecurityRiskConstructorsBlackListTest();"};
+                        "return new InvokeSecurityRiskConstructorsBlackListTest();"
+        };
 
         try {
             Object result = expressRunner.execute(expressList[0], context, null, false, false, 1000);
             Assert.fail();
-        }catch (QLException e) {
+        } catch (QLException e) {
             //预期内走这里
-            Assert.assertEquals(e.getCause().getMessage(), "使用QLExpress调用了不安全的系统构造函數:public com.ql.util.express.bugfix.InvokeSecurityRiskConstructorsBlackListTest()");
+            Assert.assertEquals(e.getCause().getMessage(), String.format("使用QLExpress调用了不安全的系统构造函數: public %s()",InvokeSecurityRiskConstructorsBlackListTest.class.getName()));
         }
         QLExpressRunStrategy.addSecureConstructor(InvokeSecurityRiskConstructorsBlackListTest.class);
-
-        Object result = expressRunner.execute(expressList[0], context, null, true, false, 1000);
         Assert.assertTrue(result instanceof InvokeSecurityRiskConstructorsBlackListTest);
+    }
+}\n')
     }
 }

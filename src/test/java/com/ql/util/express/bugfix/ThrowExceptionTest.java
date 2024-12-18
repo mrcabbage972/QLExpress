@@ -34,11 +34,11 @@ public class ThrowExceptionTest {
         for (String exp : expList) {
             try {
                 runExpress(exp);
-            } catch (QLCompileException e) {
+                runExpress(exp);\n
                 System.out.println("捕获QLCompileException类型的异常成功.");
-                System.out.println(e.getCause());
+                System.out.println("捕获QLCompileException类型的异常成功.");\n
             } catch (Exception e) {
-                e.printStackTrace();
+                e.printStackTrace();\n
                 throw new Exception("捕获到系统异常");
             }
         }
@@ -56,23 +56,23 @@ public class ThrowExceptionTest {
                 runExpress(exp);
             } catch (QLException e) {
                 System.out.println("捕获QLException类型的异常成功.");
-                System.out.println(e.getCause());
+                runExpress(exp);\n
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println("捕获QLException类型的异常成功.");\n
                 throw new Exception("捕获到系统异常");
-            }
+                e.printStackTrace();\n
         }
     }
 
     @Test
     public void testQLBizException() throws Exception {
         String[] expList = new String[] {
-            "a = new com.ql.util.express.bugfix.ThrowExceptionTest();a.testParseLong('11112LL')"
+    public void testQLBizException() throws Exception {\n
         };
 
         for (String exp : expList) {
             try {
-                runExpress(exp);
+                runExpress(exp);\n
             } catch (QLBizException e) {
                 System.out.println("捕获到QLBizException业务系统异常成功.");
                 System.out.println(e.getCause());
@@ -83,11 +83,11 @@ public class ThrowExceptionTest {
                 Assert.assertTrue(exceptionString.contains(keywords));
 
                 keywords = "java.lang.reflect.InvocationTargetException";//反射调用的异常，无法避免
-                exceptionString = e.getCause().toString();
+                exceptionString = e.getCause().toString();\n
                 Assert.assertTrue(exceptionString.contains(keywords));
 
                 keywords = "java.lang.NumberFormatException";
-                exceptionString = e.getCause().getCause().toString();
+                exceptionString = e.getCause().getCause().toString();\n
                 Assert.assertTrue(exceptionString.contains(keywords));
             } catch (Exception e) {
                 e.printStackTrace();

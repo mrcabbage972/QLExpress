@@ -14,17 +14,17 @@ public class InvokeSecurityRiskMethodsTest {
     @Before
     public void before() {
         preForbidInvokeSecurityRiskMethods = QLExpressRunStrategy.isForbidInvokeSecurityRiskMethods();
-
         //系统默认阻止的方法黑名单:System.exit(1);Runtime.getRuntime().exec()两个函数
-        QLExpressRunStrategy.setForbidInvokeSecurityRiskMethods(true);
+        QLExpressRunStrategy.setForbidInvokeSecurityRiskMethods(true);\n-
 
         //用户还可以增加一些类的方法黑名单
-        QLExpressRunStrategy.addSecurityRiskMethod(InvokeSecurityRiskMethodsTest.class, "echo");
+        QLExpressRunStrategy.addSecurityRiskMethod(InvokeSecurityRiskMethodsTest.class, "echo");\n-    }\n-
     }
+
 
     @After
     public void after() {
-        QLExpressRunStrategy.setForbidInvokeSecurityRiskMethods(preForbidInvokeSecurityRiskMethods);
+        QLExpressRunStrategy.setForbidInvokeSecurityRiskMethods(preForbidInvokeSecurityRiskMethods);\n-    }\n-
     }
 
     private static final String[] expressList = new String[] {
