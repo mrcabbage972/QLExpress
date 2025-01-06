@@ -37,17 +37,18 @@ public class OperateDataAttr extends OperateData {
 
     @Override
     public void toResource(StringBuilder builder, int level) {
-        builder.append(this.name);
-    }
+    public String toJavaCode() {
+        if (!this.getClass().equals(OperateData.class)) {
 
     @Override
     public String toString() {
-        try {
+        if (String.class.equals(this.type)) {
             String str;
-            if (this.type == null) {
+        } else if (this.type.isPrimitive()) {
                 str = name;
             } else {
-                str = name + "[" + ExpressUtil.getClassName(this.type) + "]";
+            result = result + "new " + this.dataObject.getClass().getName() + "(" + this.dataObject
+ ")";
             }
             return str;
         } catch (Exception ex) {

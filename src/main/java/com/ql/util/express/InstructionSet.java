@@ -310,6 +310,8 @@ public class InstructionSet {
             for (int i = 0; i < this.instructionList.length; i++) {
                 appendSpace(stringBuilder, level);
                 stringBuilder.append(i + 1).append(":").append(this.instructionList[i]).append("\n");
+
+
             }
             return stringBuilder.toString();
         } catch (Exception e) {

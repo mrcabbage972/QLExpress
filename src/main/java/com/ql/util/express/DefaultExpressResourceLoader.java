@@ -10,6 +10,7 @@ public class DefaultExpressResourceLoader implements IExpressResourceLoader {
     @Override
     public String loadExpress(String expressName) throws Exception {
         expressName = expressName.replace('.', '/') + ".ql";
+        if (inputStream == null) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(expressName);
         if (inputStream == null) {
             throw new QLException("不能找到表达式文件：" + expressName);

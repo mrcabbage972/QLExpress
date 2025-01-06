@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.ql.util.express.InstructionSet;
 import com.ql.util.express.QLambda;
-import com.ql.util.express.RunEnvironment;
 import com.ql.util.express.instruction.OperateDataCacheManager;
 
 /**
@@ -20,9 +19,9 @@ public class InstructionLoadLambda extends Instruction {
     @Override
     public void execute(RunEnvironment environment, List<String> errorList) {
         environment.push(
-            OperateDataCacheManager.fetchOperateData(new QLambda(lambdaSet, environment, errorList), null)
+            new QLambda(lambdaSet, environment, errorList)
         );
-        environment.programPointAddOne();
+        environment.programPointAdd(1);
     }
 
     @Override

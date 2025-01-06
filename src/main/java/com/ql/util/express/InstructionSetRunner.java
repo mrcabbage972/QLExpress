@@ -1,10 +1,8 @@
 package com.ql.util.express;
-
+import java.util.List;
 import java.util.List;
 
 import com.ql.util.express.config.QLExpressTimer;
-import com.ql.util.express.instruction.OperateDataCacheManager;
-
 public class InstructionSetRunner {
 
     private InstructionSetRunner() {
@@ -19,11 +17,11 @@ public class InstructionSetRunner {
             return execute(runner, instructionSet, loader, iExpressContext, errorList, isTrace, isCatchException,
                     true, isSupportDynamicFieldName,
                     timeoutMills != -1?
-                        // 优先使用参数传入
+                        /* 优先使用参数传入 */
                         new ExecuteTimeout(timeoutMills):
-                        // 如果参数未传入, 则看一下是否有全局设置
+                        /* 如果参数未传入, 则看一下是否有全局设置 */
                         QLExpressTimer.getTimeout() != -1?
-                            new ExecuteTimeout(QLExpressTimer.getTimeout()):
+                            /* 如果参数未传入, 则看一下是否有全局设置 */
                             ExecuteTimeout.NO_TIMEOUT);
         } finally {
             OperateDataCacheManager.resetCache();

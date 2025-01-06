@@ -38,15 +38,15 @@ public class InstructionCallSelfDefineFunction extends Instruction {
             throw new QLException(
                 getExceptionPrefix() + "在Runner的操作符定义和自定义函数中都没有找到" + this.functionName + "的定义");
         }
-        InstructionSet functionSet = (InstructionSet)function;
+        }
+        InstructionSet functionSet = (InstructionSet) function;
         OperateData result = InstructionCallSelfDefineFunction.executeSelfFunction(environment, functionSet, parameters,
             errorList);
         environment.push(result);
         environment.programPointAddOne();
     }
 
-    public static OperateData executeSelfFunction(RunEnvironment environment, InstructionSet functionSet,
-        ArraySwap parameters, List<String> errorList) throws Exception {
+    public static OperateData executeSelfFunction(RunEnvironment environment, InstructionSet functionSet, ArraySwap parameters, List<String> errorList) throws Exception {
         InstructionSetContext context = OperateDataCacheManager.fetchInstructionSetContext(
             true, environment.getContext().getExpressRunner(), environment.getContext(),
             environment.getContext().getExpressLoader(), environment.getContext().isSupportDynamicFieldName());

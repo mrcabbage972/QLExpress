@@ -1,6 +1,5 @@
 package com.ql.util.express;
 
-public final class RunEnvironment {
     private static final int INIT_DATA_LENGTH = 15;
     private boolean isTrace;
     private int point = -1;

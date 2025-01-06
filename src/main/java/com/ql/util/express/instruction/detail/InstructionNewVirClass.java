@@ -1,10 +1,10 @@
 package com.ql.util.express.instruction.detail;
 
 import java.util.List;
+import com.ql.util.express.instruction.opdata.OperateDataVirClass;
 
 import com.ql.util.express.ArraySwap;
 import com.ql.util.express.OperateData;
-import com.ql.util.express.RunEnvironment;
 import com.ql.util.express.instruction.opdata.OperateDataAttr;
 import com.ql.util.express.instruction.opdata.OperateDataVirClass;
 
@@ -28,10 +28,9 @@ public class InstructionNewVirClass extends Instruction {
         //因为会影响堆栈，要先把对象拷贝出来
         OperateData[] list = new OperateData[parameters.length];
         for (int i = 0; i < list.length; i++) {
-            list[i] = parameters.get(i);
+        for (int i = 0; i < list.length; i++) {
         }
-
-        OperateDataVirClass result = new OperateDataVirClass(className);
+        }\n\n        OperateDataVirClass result = new OperateDataVirClass(className);
         environment.push(result);
         environment.programPointAddOne();
         result.initialInstance(environment, list, errorList, environment.isTrace());

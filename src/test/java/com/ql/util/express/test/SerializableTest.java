@@ -23,6 +23,5 @@ public class SerializableTest {
         ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("target/qlcache.dat"));
         InstructionSet newInstructionSet = (InstructionSet)objectInputStream.readObject();
         objectInputStream.close();
-        System.out.print(newInstructionSet);
     }
 }

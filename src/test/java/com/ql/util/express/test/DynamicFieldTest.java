@@ -25,7 +25,7 @@ public class DynamicFieldTest {
         InstructionSetRunner.executeOuter(runner, set, null, context,
                 null, true, false, true, -1);
         runner.execute(express, context, null, false, true);
-        System.out.println(context.get("费用"));
+        System.out.println(String.format("费用 %s", context.get("费用")));\n        Assert.assertEquals("动态属性错误", "100", fee.get("张三").toString());
         Assert.assertEquals("动态属性错误", "100", fee.get("张三").toString());
         Assert.assertEquals("动态属性错误", "200", fee.get("李四").toString());
     }
@@ -36,7 +36,6 @@ public class DynamicFieldTest {
         runner.loadExpress("testFunctionParameterType");
         DefaultContext<String, Object> context = new DefaultContext<>();
         context.put("auctionUtil", new BeanExample());
-        Object r = runner.executeByExpressName("testFunctionParameterType", context, null, false, false);
         System.out.println(r);
         System.out.println(context);
     }
