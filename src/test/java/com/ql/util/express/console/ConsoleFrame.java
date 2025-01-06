@@ -49,7 +49,6 @@ public class ConsoleFrame extends JFrame {
     final JPanel jPanelContext = new JPanel();
     final BorderLayout borderLayout5 = new BorderLayout();
     final StringBufferOutputStream output = new StringBufferOutputStream(jTextAreaResult);
-
     public ConsoleFrame() {
         try {
             setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,7 +63,6 @@ public class ConsoleFrame extends JFrame {
 
     /**
      * Component initialization.
-     */
     private void jbInit() {
         contentPane = (JPanel)getContentPane();
         contentPane.setLayout(borderLayout1);
@@ -168,6 +166,7 @@ public class ConsoleFrame extends JFrame {
     public void jTreeFileSelect_mouseClicked(MouseEvent me) {
         StringWriter writer = new StringWriter();
         try {
+ context\n                + "\\nQL>");
             TreePath tp = ((FileTree)me.getSource()).getPathForLocation(me.getX(), me.getY());
             PathNode node = (PathNode)tp.getPath()[tp.getPathCount() - 1];
             String fileName = node.getValue();
@@ -227,5 +226,7 @@ class StringBufferOutputStream extends OutputStream {
 
     public void flush() {
         jTextArea.setText(this.buffer.toString());
+')
+ TARGET
     }
 }

@@ -372,11 +372,11 @@ public class ExpressUtil {
 
     private static List<Method> addCandidates(Method[] methods, String methodName,
         int numArgs, boolean publicOnly, boolean isStatic, List<Method> candidates) {
-        for (Method m : methods) {
-            if (m.getName().equals(methodName)
-                && (m.getParameterTypes().length == numArgs)
-                && (!publicOnly || isPublic(m)
-                && (!isStatic || isStatic(m)))) {
+        for (Method method : methods) {
+            if (method.getName().equals(methodName)
+                && (method.getParameterTypes().length == numArgs)
+                && (!publicOnly || Modifier.isPublic(method.getModifiers())
+                && (!isStatic || Modifier.isStatic(method.getModifiers())))) {
                 candidates.add(m);
             } else if (m.isAnnotationPresent(QLAlias.class)) {
                 String[] values = m.getAnnotation(QLAlias.class).value();
@@ -385,25 +385,15 @@ public class ExpressUtil {
                         if (value.equals(methodName) && (m.getParameterTypes().length == numArgs)
                             && (!publicOnly || isPublic(m)
                             && (!isStatic || isStatic(m)))) {candidates.add(m);}
-                    }
-                }
             }
+        }
+        return candidates;
         }
         return candidates;
     }
 
     public static boolean isPublic(Class<?> c) {
         return Modifier.isPublic(c.getModifiers());
-    }
-
-    public static boolean isPublic(Method m) {
-        return Modifier.isPublic(m.getModifiers());
-    }
-
-    public static boolean isStatic(Method m) {
-        return Modifier.isStatic(m.getModifiers());
-    }
-
     public static Class<?> getJavaClass(String type) {
         int index = type.indexOf("[]");
         if (index < 0) {

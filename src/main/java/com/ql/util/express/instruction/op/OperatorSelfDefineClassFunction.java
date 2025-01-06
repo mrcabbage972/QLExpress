@@ -93,7 +93,7 @@ public class OperatorSelfDefineClassFunction extends OperatorBase implements Can
             this.maybeDynamicParams);
         Object obj;
         if (Modifier.isStatic(this.method.getModifiers())) {
-            obj = this.method.invoke(null, ExpressUtil.transferArray(parameters, parameterClasses));
+            obj = this.method.invoke(null, ExpressUtil.transferArray(parameters, this.parameterClasses));
         } else {
             if (operatorInstance == null) {
                 operatorInstance = operatorClass.newInstance();
